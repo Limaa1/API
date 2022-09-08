@@ -1,0 +1,124 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "description": "API para retornar IPs tor",
+      "version": "1.0.0",
+      "title": "API Proof",
+      "contact": {
+        "email": "guilhermekslima1@gmail.com"
+      }
+    
+    },
+
+    "servers": [
+        {
+          "url": "/"
+        }
+      ],
+      "tags": [
+        {
+          "name": "IP Request",
+          "description": "Endpoints"
+        }
+      ],
+
+      "paths": {
+        "/get": {
+          "get": {
+            "tags": [
+              "IP Get Request"
+            ],
+            "summary": "Returns IpGetRequest",
+            "responses": {
+              "200": {
+                "description": "Retorna todos os IPs tor de 2 listas distintas",
+                "schema": {
+                  "$ref": "#/components/schemas/IpGetRequest"
+                }
+              }
+            }
+          }
+        },
+
+        "/post": {
+            "post": {
+              "tags": [
+                "IP Post Request"
+              ],
+              "summary": "Returns IpPostRequest",
+              "responses": {
+                "200": {
+                  "description": "Coloca IPs tor em uma lista para não ser exibida no endpoint abaixo",
+                  "schema": {
+                    "$ref": "#/components/schemas/IpPostRequest"
+                  }
+                }
+              }
+            }
+          },
+
+
+        "/ativos": {
+            "get": {
+              "tags": [
+                "IP Ativo Get Request"
+              ],
+              "summary": "Returns IpAtivoGetRequest",
+              "responses": {
+                "200": {
+                  "description": "Retorna todos os IPs tor de 2 listas distintas, com exceção dos que foram colocados em uma lista pelo método POST",
+                  "schema": {
+                    "$ref": "#/components/schemas/IpAtivoGetRequest"
+                  }
+                }
+              }
+            }
+          }
+
+
+
+      },
+
+      
+
+    "components": {
+        "schemas": {
+        "IpGetRequest": {
+            "properties": {
+                "IP": {
+                "type": "string",
+                "format": "string"
+              }
+            }
+          },
+          "IpPostRequest": {
+            "type": "object",
+            "properties": {
+              "IP": {
+                "type": "string",
+                "format": "string"
+              }
+            }
+          },
+            "IpAtivoGetRequest": {
+                "type": "object",
+                "properties": {
+                  "IP": {
+                    "type": "string",
+                    "format": "string" 
+                  }
+                  }
+
+            
+                    
+                    
+                
+            }
+        }
+    }
+ }
+
+  
+
+
+  
